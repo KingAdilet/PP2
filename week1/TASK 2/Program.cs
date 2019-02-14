@@ -4,42 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab1_2.cs
+namespace lab1_2
 {
-    class Program
+    class Student // создание класса
     {
-        public static bool F1(int a)
+        public string name; // public доступен из любого места программы
+        public string id;
+        public int yearofstudy = 1;
+        public Student(string n, string i)// создание метода, метод - это именованный блок кода, который выполняет некоторые действия
         {
-            if (a <= 1) return false;
-
-            for (int i = 2; i < a; i++)
-                if (a % i == 0) return true;            
-            else return false;
+            name = n;//assign variables to name
+            id = i;//assign variables to id
         }
-    
-    
-        static void Main(string[] args)
+        public void first()
         {
-            int n = int.Parse(Console.ReadLine());
-            int[] a = new int[n];
-            string[] a = Console.ReadLine().Split();
-            for (int i = 0; i <n; i++)
-            {
-                a[i] = int.Parse(a[i]);
-            }
-            int sum = 0;
-            for(int i = 0; i < n; i++)
-            {
-                if (F1(a[i]) == true) sum++ ;
-            }
-            Console.WriteLine(sum);
-            for (int i = 0; i < n; i++)
-            {
-                if (F1(a[i]) == true) 
-                Console.WriteLine(a[i]+" ");
-            }
-
+            Console.WriteLine(name + " " + id + " ");//function to show the name and id 
+        }
+        public void second()//incrementation function where we add +1 to original year of study
+        {
+            Console.WriteLine(yearofstudy + " before");
+            yearofstudy++;
+            Console.WriteLine(yearofstudy + " after increment"); 
         }
     }
+    class Program
+    {
+        static void Main(string[] args)//Main is written to deal with several functions where linked in it
+        {
+            Student s = new Student("Adilet", "18BD120125");// using method student(constructor)
+            s.first();//then we use first function to declare name and id
+            s.second();//then we increment year of study
+            Console.ReadKey();
+        }
+        
+    }
 }
-
